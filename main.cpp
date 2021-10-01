@@ -46,6 +46,7 @@
 #define TEST_TIMER              0
 #define TEST_DMA                0
 #define TEST_WDT                0
+#define TEST_FLASH_INFO_BLOCK   0
 
 extern int test_blink_led(void);
 extern int test_button(void);
@@ -58,6 +59,7 @@ extern int test_rtc(void);
 extern int test_timer(void);
 extern int test_dma(void);
 extern int test_wdt(void);
+extern int test_flash_info_block(void);
 
 int main(void)
 {
@@ -83,5 +85,7 @@ int main(void)
         test_wdt();
     #elif TEST_LOW_POWER_MODES
         test_lp_modes();
+    #elif TEST_FLASH_INFO_BLOCK
+        test_flash_info_block();
     #endif
 }

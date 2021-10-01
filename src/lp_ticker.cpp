@@ -1,4 +1,5 @@
 
+#if DEVICE_LPTICKER
 
 #include "mbed.h"
 
@@ -21,3 +22,5 @@ int test_lp_ticker(void)
         //wait_us(200*1000); 
     }
 }
+
+#endif

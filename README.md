@@ -53,3 +53,5 @@ If you have problems, you can review the [documentation](https://os.mbed.com/doc
 * [Mbed boards](https://os.mbed.com/platforms/).
 
 ### License and contributions
+The software is provided under the [Apache-2.0 license](LICENSE-apache-2.0.txt). 
+Contributions to this project are accepted under the same license.

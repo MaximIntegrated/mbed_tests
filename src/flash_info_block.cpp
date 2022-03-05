@@ -39,6 +39,9 @@
  */
 
 /***** Includes *****/
+#include "mxc_tests.h"
+
+#if  TEST_FLASH_INFO_BLOCK
 #include "mbed.h"
 
 #include <stdio.h>
@@ -173,3 +176,4 @@ int test_flash_info_block(void)
 
     return 0;
 }
+#endif // TEST_FLASH_INFO_BLOCK

@@ -1,5 +1,7 @@
 
+#include "mxc_tests.h"
 
+#if  TEST_TIMER
 #include "mbed.h"
 
 using namespace std::chrono;
@@ -55,3 +57,4 @@ int test_timer(void)
         }     
     }
 }
+#endif // TEST_TIMER

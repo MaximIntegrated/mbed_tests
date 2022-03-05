@@ -1,7 +1,9 @@
 
+#include "mxc_tests.h"
 
+#if  TEST_BUTTON
 #include "mbed.h"
-    
+
 static DigitalOut led(LED1);
 static DigitalIn  button(BUTTON1);
  
@@ -23,3 +25,4 @@ int test_button(void)
         ThisThread::sleep_for(10ms);
     }
 }
+#endif // TEST_BUTTON

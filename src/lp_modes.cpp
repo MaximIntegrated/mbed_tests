@@ -1,4 +1,7 @@
 
+#include "mxc_tests.h"
+
+#if  TEST_LOW_POWER_MODES
 #include "mbed.h"
 
 #include "max32660.h"
@@ -91,3 +94,4 @@ int test_lp_modes(void)
         //printf("Waking up from BACKUP mode\n");        
     }
 }
+#endif // TEST_LOW_POWER_MODES

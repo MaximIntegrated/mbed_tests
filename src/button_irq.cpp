@@ -1,7 +1,8 @@
 
+#include "mxc_tests.h"
 
+#if  TEST_BUTTON_IRQ
 #include "mbed.h"
-
 
 static DigitalOut  led(LED1);
 static InterruptIn button(BUTTON1);
@@ -26,3 +27,4 @@ int test_button_irq(void)
         }           
     }
 }
+#endif // TEST_BUTTON_IRQ

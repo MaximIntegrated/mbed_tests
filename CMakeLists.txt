@@ -19,6 +19,12 @@ mbed_set_mbed_target_linker_script(${APP_TARGET})
 
 project(${APP_TARGET})
 
+target_include_directories(${APP_TARGET}
+    PRIVATE
+        .
+        src/
+)
+
 target_sources(${APP_TARGET}
     PRIVATE
         main.cpp        

@@ -1,5 +1,8 @@
 
 
+#include "mxc_tests.h"
+
+#if  TEST_RTC
 #include "mbed.h"
 
 int test_rtc(void)
@@ -22,3 +25,4 @@ int test_rtc(void)
         ThisThread::sleep_for(1s);
     }
 }
+#endif // TEST_RTC

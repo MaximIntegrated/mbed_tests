@@ -1,5 +1,7 @@
 
+#include "mxc_tests.h"
 
+#if  TEST_BLINK_LED
 #include "mbed.h"
 
 // Blinking rate in milliseconds
@@ -17,3 +19,4 @@ int test_blink_led(void)
        //wait_us(5000*100); 
     }
 }
+#endif // TEST_BLINK_LED

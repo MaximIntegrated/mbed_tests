@@ -40,6 +40,9 @@
 
 
 /*******************************      INCLUDES    ****************************/
+#include "mxc_tests.h"
+
+#if  TEST_DMA
 #include "mbed.h"
 #include "dma.h"
 
@@ -211,3 +214,4 @@ int test_dma(void)
     
     return 0;
 }
+#endif // TEST_DMA

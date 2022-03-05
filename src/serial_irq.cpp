@@ -1,5 +1,8 @@
 
 
+#include "mxc_tests.h"
+
+#if  TEST_SERIAL_IRQ
 #include "mbed.h"
 
 
@@ -43,3 +46,4 @@ int test_serial_irq(void)
         ;
     }
 }
+#endif // TEST_SERIAL_IRQ

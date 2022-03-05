@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (C) Maxim Integrated Products, Inc., All Rights Reserved.
+ * Copyright (C) 2022 Maxim Integrated Products, Inc., All Rights Reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -32,34 +32,33 @@
  *
  ******************************************************************************/
 
-#include "mbed.h"
-#include "mxc_tests.h"
+#ifndef __MXC_TESTS_H_
+#define __MXC_TESTS_H_
 
-int main(void)
-{
-    #if  TEST_BLINK_LED
-        test_blink_led();
-    #elif TEST_BUTTON
-        test_button();
-    #elif TEST_BUTTON_IRQ
-        test_button_irq();
-    #elif TEST_SERIAL_READ_WRITE
-        test_serial_read_write();
-    #elif TEST_SERIAL_IRQ
-        test_serial_irq();
-    #elif TEST_RTC
-        test_rtc();
-    #elif TEST_TIMER
-        test_timer();
-    #elif TEST_LP_TICKER
-        test_lp_ticker();
-    #elif TEST_DMA
-        test_dma();
-    #elif TEST_WDT
-        test_wdt();
-    #elif TEST_LOW_POWER_MODES
-        test_lp_modes();
-    #elif TEST_FLASH_INFO_BLOCK
-        test_flash_info_block();
-    #endif
-}
+#define TEST_BLINK_LED          1
+#define TEST_BUTTON             0
+#define TEST_BUTTON_IRQ         0
+#define TEST_SERIAL_READ_WRITE  0
+#define TEST_SERIAL_IRQ         0
+#define TEST_LP_TICKER          0
+#define TEST_LOW_POWER_MODES    0
+#define TEST_RTC                0
+#define TEST_TIMER              0
+#define TEST_DMA                0
+#define TEST_WDT                0
+#define TEST_FLASH_INFO_BLOCK   0
+
+int test_blink_led(void);
+int test_button(void);
+int test_button_irq(void);
+int test_serial_read_write(void);
+int test_serial_irq(void);
+int test_lp_ticker(void);
+int test_lp_modes(void);
+int test_rtc(void);
+int test_timer(void);
+int test_dma(void);
+int test_wdt(void);
+int test_flash_info_block(void);
+
+#endif //__MXC_TESTS_H_

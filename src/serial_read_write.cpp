@@ -1,5 +1,8 @@
 
 
+#include "mxc_tests.h"
+
+#if  TEST_SERIAL_READ_WRITE
 #include "mbed.h"
 
 static UnbufferedSerial  pc(UART0_TX, UART0_RX, 9600);
@@ -31,3 +34,4 @@ int test_serial_read_write(void)
 		}
 	}
 }
+#endif // TEST_SERIAL_READ_WRITE

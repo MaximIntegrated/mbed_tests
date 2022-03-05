@@ -1,5 +1,8 @@
 
 
+#include "mxc_tests.h"
+
+#if  TEST_WDT
 #include "mbed.h"
 
 static const uint32_t TIMEOUT_MS = 5000;
@@ -31,3 +34,4 @@ int test_wdt(void)
         ThisThread::sleep_for(TIMEOUT_MS / 10);
     }
 }
+#endif // TEST_WDT

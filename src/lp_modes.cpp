@@ -4,7 +4,7 @@
 #if  TEST_LOW_POWER_MODES
 #include "mbed.h"
 
-#include "max32660.h"
+#include "mxc_device.h"
 #include "lp.h"
 #include "rtc.h"
 #include "nvic_table.h"
@@ -22,9 +22,11 @@ static void button_handler(void)
 
 static void alarmHandler(void)
 {
-    // clear flags
-    MXC_RTC->ctrl &= ~(MXC_F_RTC_CTRL_ALSF);
-    MXC_RTC->ctrl &= ~(MXC_F_RTC_CTRL_ALDF);
+    #if defined(TARGET_MAX32660)
+        // clear flags
+        MXC_RTC->ctrl &= ~(MXC_F_RTC_CTRL_ALSF);
+        MXC_RTC->ctrl &= ~(MXC_F_RTC_CTRL_ALDF);
+    #endif
 }
 
 static void set_rtc_alarm(unsigned int ms)
@@ -56,7 +58,9 @@ int test_lp_modes(void)
     NVIC_EnableIRQ(RTC_IRQn);
 
     MXC_LP_EnableRTCAlarmWakeup();
-    MXC_LP_EnableGPIOWakeup(port, 1<<pin);
+    #if defined(TARGET_MAX32660)
+        MXC_LP_EnableGPIOWakeup(port, 1<<pin);
+    #endif
 
     while(1) {
 
@@ -82,10 +86,12 @@ int test_lp_modes(void)
         
         MXC_LP_ClearWakeStatus();
         
-        MXC_LP_EnableSRamRet0();
-        MXC_LP_EnableSRamRet1();
-        MXC_LP_EnableSRamRet2();
-        MXC_LP_EnableSRamRet3();
+        #if defined(TARGET_MAX32660) 
+            MXC_LP_EnableSRamRet0();
+            MXC_LP_EnableSRamRet1();
+            MXC_LP_EnableSRamRet2();
+            MXC_LP_EnableSRamRet3();
+        #endif
         
         MXC_LP_EnterBackupMode();
         /*

@@ -10,8 +10,10 @@
 static DigitalOut led(LED1);
 
 // Create a UnbufferedSerial object with a default baud rate.
-static UnbufferedSerial  serial_port(UART0_TX, UART0_RX, 115200);
-static UnbufferedSerial  debug_port(UART1A_TX, UART1A_RX, 115200);
+#if defined(TARGET_MAX32660) 
+    static UnbufferedSerial  serial_port(UART0_TX, UART0_RX, 115200);
+    static UnbufferedSerial  debug_port(UART1A_TX, UART1A_RX, 115200);
+#endif
 
 static char g_buf[512];
 static int  g_rxLen;

@@ -86,11 +86,13 @@ int test_lp_modes(void)
         
         MXC_LP_ClearWakeStatus();
         
-        #if defined(TARGET_MAX32660) 
+        #if defined(TARGET_MAX32660EVSYS) 
             MXC_LP_EnableSRamRet0();
             MXC_LP_EnableSRamRet1();
             MXC_LP_EnableSRamRet2();
             MXC_LP_EnableSRamRet3();
+        #elif defined(TARGET_MAX32670EVKIT) 
+
         #endif
         
         MXC_LP_EnterBackupMode();

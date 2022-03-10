@@ -5,6 +5,7 @@
 #if DEVICE_LPTICKER
 #include "mbed.h"
 
+using namespace std::chrono;
 
 static LowPowerTicker flipper;
 static DigitalOut     led(LED1);
@@ -17,6 +18,7 @@ static void flip(void)
 int test_lp_ticker(void)
 {
     led = 1;
+
     flipper.attach(&flip, 2s);
 
     while (1) {

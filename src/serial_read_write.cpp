@@ -5,7 +5,11 @@
 #if  TEST_SERIAL_READ_WRITE
 #include "mbed.h"
 
-static UnbufferedSerial  pc(UART0_TX, UART0_RX, 9600);
+#if defined(TARGET_MAX32660) 
+    static UnbufferedSerial  pc(UART0_TX, UART0_RX, 9600);
+#elif defined(TARGET_MAX32670) 
+    static UnbufferedSerial  pc(UART1_TX, UART1_RX, 9600);
+#endif
 
 int test_serial_read_write(void) 
 {

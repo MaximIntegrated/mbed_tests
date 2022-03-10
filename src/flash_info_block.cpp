@@ -165,7 +165,7 @@ int test_flash_info_block(void)
 
     /* Dump user section */
     printf("\n\n***** USER AREA *****\n");
-    dump_section(OTP_USER_AREA,     OTP_USER_AREA_SIZE);
+    dump_section(OTP_USER_AREA,     1024); // OTP_USER_AREA_SIZE
 
 #if WITH_WRITE_TEST
     // run write test

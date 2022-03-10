@@ -13,6 +13,9 @@ static DigitalOut led(LED1);
 #if defined(TARGET_MAX32660) 
     static UnbufferedSerial  serial_port(UART0_TX, UART0_RX, 115200);
     static UnbufferedSerial  debug_port(UART1A_TX, UART1A_RX, 115200);
+#elif defined(TARGET_MAX32670) 
+    static UnbufferedSerial  serial_port(UART1_TX, UART1_RX, 115200);
+    static UnbufferedSerial  debug_port(UART0_TX, UART0_RX, 115200);
 #endif
 
 static char g_buf[512];

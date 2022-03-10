@@ -33,7 +33,7 @@ target_sources(${APP_TARGET}
         src/button_irq.cpp
         src/dma.cpp
         src/lp_modes.cpp
-        src/lp_ticker.cpp
+        src/lowpower_ticker.cpp
         src/rtc.cpp
         src/serial_irq.cpp
         src/serial_read_write.cpp

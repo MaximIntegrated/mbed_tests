@@ -22,10 +22,13 @@ static void button_handler(void)
 
 static void alarmHandler(void)
 {
-    #if defined(TARGET_MAX32660)
+    #if defined(TARGET_MAX32660EVSYS)
         // clear flags
         MXC_RTC->ctrl &= ~(MXC_F_RTC_CTRL_ALSF);
         MXC_RTC->ctrl &= ~(MXC_F_RTC_CTRL_ALDF);
+    #else
+        MXC_RTC->ctrl &= ~MXC_F_RTC_CTRL_SSEC_ALARM;
+        MXC_RTC->ctrl &= ~MXC_F_RTC_CTRL_TOD_ALARM;
     #endif
 }
 
@@ -58,9 +61,7 @@ int test_lp_modes(void)
     NVIC_EnableIRQ(RTC_IRQn);
 
     MXC_LP_EnableRTCAlarmWakeup();
-    #if defined(TARGET_MAX32660)
-        MXC_LP_EnableGPIOWakeup(port, 1<<pin);
-    #endif
+    MXC_LP_EnableGPIOWakeup(port, 1<<pin);
 
     while(1) {
 
@@ -92,7 +93,10 @@ int test_lp_modes(void)
             MXC_LP_EnableSRamRet2();
             MXC_LP_EnableSRamRet3();
         #elif defined(TARGET_MAX32670EVKIT) 
-
+            MXC_LP_SysRam0LightSleepEnable();
+            MXC_LP_SysRam1LightSleepEnable();
+            MXC_LP_SysRam2LightSleepEnable();
+            MXC_LP_SysRam3LightSleepEnable();
         #endif
         
         MXC_LP_EnterBackupMode();
